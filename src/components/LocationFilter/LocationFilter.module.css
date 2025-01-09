@@ -1,0 +1,37 @@
+.locationWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.locationLabel {
+  color: #6c717b;
+}
+
+.inputWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.locationInput {
+  width: 360px;
+  height: 58px;
+  background-color: #f7f7f7;
+  border-radius: 12px;
+  border: transparent 1px solid;
+  font-size: 16px;
+  padding-left: 48px;
+  outline: transparent;
+}
+
+.locationInput:focus {
+  border: #e44848 1px solid;
+}
+
+.mapIcon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
