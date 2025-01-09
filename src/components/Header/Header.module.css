@@ -1,3 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 72px;
+  background-color: #f7f7f7;
+  border-bottom: #f2f4f7;
+}
+
+.logo {
+  position: absolute;
+  color: #101828;
+  font-weight: 900;
+  left: 64px;
+}
+
+.logoSpan {
+  color: #475467;
+}
+
+.navigationList {
+  display: flex;
+  column-gap: 32px;
+}
+
+.link {
+  color: #101828;
+}
+
 .active {
   color: #d84343;
 }

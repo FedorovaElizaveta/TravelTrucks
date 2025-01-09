@@ -4,12 +4,12 @@ import clsx from "clsx";
 
 const Header = () => {
   return (
-    <header>
-      <a href="/">
-        Travel<span>Trucks</span>
+    <header className={css.header}>
+      <a href="/" className={css.logo}>
+        Travel<span className={css.logoSpan}>Trucks</span>
       </a>
       <nav>
-        <ul>
+        <ul className={css.navigationList}>
           <li>
             <NavLink
               to="/"

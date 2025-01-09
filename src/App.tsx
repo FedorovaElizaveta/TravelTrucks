@@ -4,12 +4,10 @@ import { lazy, Suspense } from "react";
 import Layout from "./components/Layout/Layout.tsx";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.tsx"));
-// const CampersPage = lazy(
-//   () => import("./pages/CampersPage/CampersPage.tsx")
-// );
-// const CampersDetails = lazy(
-//   () => import("./pages/CampersDetails/CampersDetails.tsx")
-// );
+const CampersPage = lazy(() => import("./pages/CampersPage/CampersPage.tsx"));
+const CampersDetailsPage = lazy(
+  () => import("./pages/CampersDetailsPage/CampersDetailsPage.tsx")
+);
 // const NotFoundPage = lazy(
 //   () => import("./pages/NotFoundPage/NotFoundPage.tsx")
 // );
@@ -20,8 +18,8 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/campers" element={<CampersPage />} /> */}
-          {/* <Route path="/campers/:id" element={<CampersDetails />} /> */}
+          <Route path="/campers" element={<CampersPage />} />
+          <Route path="/campers/:id" element={<CampersDetailsPage />} />
           {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Route>
       </Routes>

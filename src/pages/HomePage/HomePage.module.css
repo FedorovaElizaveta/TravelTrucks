@@ -1,0 +1,53 @@
+.pageWrapper {
+  height: calc(100vh - 72px);
+  background-color: #101828;
+  background-image: url("../../images/vehicle1x.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+@media screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx),
+  screen and (min-device-pixel-ratio: 2) {
+  .pageWrapper {
+    background-image: url("../../images/vehicle2x.jpg");
+  }
+}
+
+.pageText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 72px);
+  color: #f7f7f7;
+  margin-left: 64px;
+}
+
+.mainHeading {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.subheading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.campersLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 173px;
+  height: 56px;
+  color: #ffffff;
+  background-color: #e44848;
+  border-radius: 200px;
+  transition: background-color 250ms ease-in-out;
+}
+
+.campersLink:hover,
+.campersLink:focus {
+  background-color: #d84343;
+}
