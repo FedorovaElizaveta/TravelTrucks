@@ -14,7 +14,7 @@ const TypeFilter = () => {
           />
           <label htmlFor="van" className={css.typeLabel}>
             <svg width="32" height="32" className={css.typeIcon}>
-              <use href="/public/symbol-defs.svg#icon-van"></use>
+              <use href="/symbol-defs.svg#icon-van"></use>
             </svg>
 
             <span className={css.typeLabelName}>Van</span>
@@ -29,7 +29,7 @@ const TypeFilter = () => {
           />
           <label htmlFor="fullyIntegrated" className={css.typeLabel}>
             <svg width="28" height="28" className={css.typeIcon}>
-              <use href="/public/symbol-defs.svg#icon-fullyIntegrated"></use>
+              <use href="/symbol-defs.svg#icon-fullyIntegrated"></use>
             </svg>
 
             <span className={css.typeLabelName}>Fully Integrated</span>
@@ -44,7 +44,7 @@ const TypeFilter = () => {
           />
           <label htmlFor="alcove" className={css.typeLabel}>
             <svg width="28" height="28" className={css.typeIcon}>
-              <use href="/public/symbol-defs.svg#icon-alcove"></use>
+              <use href="/symbol-defs.svg#icon-alcove"></use>
             </svg>
 
             <span className={css.typeLabelName}>Alcove</span>
