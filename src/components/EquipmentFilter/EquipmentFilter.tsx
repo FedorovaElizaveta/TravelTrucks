@@ -82,7 +82,7 @@ const EquipmentFilter = () => {
             name="refrigerator"
             className={css.equipmentCheckbox}
           />
-          <label htmlFor="refrigeratorAC" className={css.equipmentLabel}>
+          <label htmlFor="refrigerator" className={css.equipmentLabel}>
             Refrigerator
           </label>
         </li>

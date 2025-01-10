@@ -1,14 +1,14 @@
-.equipmentFilterWrapper {
+.typeFilterWrapper {
   position: relative;
 }
 
-.equipmentHeading {
+.typeHeading {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 48px;
 }
 
-.equipmentHeading::after {
+.typeHeading::after {
   content: "";
   position: absolute;
   display: block;
@@ -18,22 +18,21 @@
   top: 48px;
 }
 
-.equipmentCheckbox {
+.typeCheckbox {
   display: none;
 }
 
-.equipmentList {
+.typeList {
   display: flex;
   flex-wrap: wrap;
   column-gap: 12px;
-  row-gap: 8px;
 }
 
-.equipmentListItem {
+.typeListItem {
   position: relative;
 }
 
-.equipmentIcon {
+.typeIcon {
   position: absolute;
   top: 16px;
   left: 50%;
@@ -41,7 +40,7 @@
   pointer-events: none;
 }
 
-.equipmentLabel {
+.typeLabel {
   display: flex;
   justify-content: center;
   padding-top: 56px;
@@ -53,10 +52,10 @@
   cursor: pointer;
 }
 
-.equipmentLabel:hover {
+.typeLabel:hover {
   border-color: #6c717b;
 }
 
-.equipmentCheckbox:checked + .equipmentLabel {
+.typeCheckbox:checked + .typeLabel {
   border-color: #e44848;
 }
