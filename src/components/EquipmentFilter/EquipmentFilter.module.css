@@ -1,0 +1,62 @@
+.equipmentFilterWrapper {
+  position: relative;
+}
+
+.equipmentHeading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 48px;
+}
+
+.equipmentHeading::after {
+  content: "";
+  position: absolute;
+  top: 48px;
+  display: block;
+  width: 360px;
+  height: 1px;
+  background: #dadde1;
+}
+
+.equipmentCheckbox {
+  display: none;
+}
+
+.equipmentList {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 12px;
+  row-gap: 8px;
+}
+
+.equipmentListItem {
+  position: relative;
+}
+
+.equipmentIcon {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.equipmentLabel {
+  display: flex;
+  justify-content: center;
+  padding-top: 56px;
+  width: 112px;
+  height: 96px;
+  border: #dadde1 1px solid;
+  border-radius: 12px;
+  transition: border-color 250ms ease-in-out;
+  cursor: pointer;
+}
+
+.equipmentLabel:hover {
+  border-color: #6c717b;
+}
+
+.equipmentCheckbox:checked + label {
+  border-color: #e44848;
+}

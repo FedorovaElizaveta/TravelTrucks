@@ -8,13 +8,14 @@ const LocationFilter = () => {
         Location
       </label>
       <div className={css.inputWrapper}>
-        <BsMap size={20} className={css.mapIcon} />
         <input
           type="text"
           name="location"
           id="location"
+          placeholder="City"
           className={css.locationInput}
         />
+        <BsMap size={20} className={css.mapIcon} />
       </div>
     </div>
   );
