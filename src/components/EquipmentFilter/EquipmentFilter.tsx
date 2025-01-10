@@ -2,11 +2,9 @@ import css from "./EquipmentFilter.module.css";
 import { BsWind } from "react-icons/bs";
 import { BsDroplet } from "react-icons/bs";
 import { BsCupHot } from "react-icons/bs";
-import { IoMdTv } from "react-icons/io";
 import { BsUiRadios } from "react-icons/bs";
 import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { TbMicrowave } from "react-icons/tb";
-import { FaGasPump } from "react-icons/fa";
 import { BiWater } from "react-icons/bi";
 
 const EquipmentFilter = () => {
@@ -15,7 +13,6 @@ const EquipmentFilter = () => {
       <h2 className={css.equipmentHeading}>Vehicle equipment</h2>
       <ul className={css.equipmentList}>
         <li className={css.equipmentListItem}>
-          <BsWind size={32} className={css.equipmentIcon} />
           <input
             type="checkbox"
             id="AC"
@@ -23,11 +20,11 @@ const EquipmentFilter = () => {
             className={css.equipmentCheckbox}
           />
           <label htmlFor="AC" className={css.equipmentLabel}>
-            AC
+            <BsWind size={32} />
+            <span>AC</span>
           </label>
         </li>
         <li className={css.equipmentListItem}>
-          <BsDroplet size={32} className={css.equipmentIcon} />
           <input
             type="checkbox"
             id="bathroom"
@@ -35,11 +32,11 @@ const EquipmentFilter = () => {
             className={css.equipmentCheckbox}
           />
           <label htmlFor="bathroom" className={css.equipmentLabel}>
-            Bathroom
+            <BsDroplet size={32} />
+            <span>Bathroom</span>
           </label>
         </li>
         <li className={css.equipmentListItem}>
-          <BsCupHot size={32} className={css.equipmentIcon} />
           <input
             type="checkbox"
             id="kitchen"
@@ -47,11 +44,11 @@ const EquipmentFilter = () => {
             className={css.equipmentCheckbox}
           />
           <label htmlFor="kitchen" className={css.equipmentLabel}>
-            Kitchen
+            <BsCupHot size={32} />
+            <span>Kitchen</span>
           </label>
         </li>
         <li className={css.equipmentListItem}>
-          <IoMdTv size={32} className={css.equipmentIcon} />
           <input
             type="checkbox"
             id="TV"
@@ -59,11 +56,13 @@ const EquipmentFilter = () => {
             className={css.equipmentCheckbox}
           />
           <label htmlFor="TV" className={css.equipmentLabel}>
-            TV
+            <svg width="32" height="32" className={css.equipmentIcon}>
+              <use href="/src/assets/symbol-defs.svg#icon-tv"></use>
+            </svg>
+            <span>TV</span>
           </label>
         </li>
         <li className={css.equipmentListItem}>
-          <BsUiRadios size={32} className={css.equipmentIcon} />
           <input
             type="checkbox"
             id="radio"
@@ -71,11 +70,11 @@ const EquipmentFilter = () => {
             className={css.equipmentCheckbox}
           />
           <label htmlFor="radio" className={css.equipmentLabel}>
-            Radio
+            <BsUiRadios size={32} />
+            <span>Radio</span>
           </label>
         </li>
         <li className={css.equipmentListItem}>
-          <CgSmartHomeRefrigerator size={32} className={css.equipmentIcon} />
           <input
             type="checkbox"
             id="refrigerator"
@@ -83,11 +82,11 @@ const EquipmentFilter = () => {
             className={css.equipmentCheckbox}
           />
           <label htmlFor="refrigerator" className={css.equipmentLabel}>
-            Refrigerator
+            <CgSmartHomeRefrigerator size={32} />
+            <span>Refrigerator</span>
           </label>
         </li>
         <li className={css.equipmentListItem}>
-          <TbMicrowave size={32} className={css.equipmentIcon} />
           <input
             type="checkbox"
             id="microwave"
@@ -95,11 +94,11 @@ const EquipmentFilter = () => {
             className={css.equipmentCheckbox}
           />
           <label htmlFor="microwave" className={css.equipmentLabel}>
-            Microwave
+            <TbMicrowave size={32} />
+            <span>Microwave</span>
           </label>
         </li>
         <li className={css.equipmentListItem}>
-          <FaGasPump size={32} className={css.equipmentIcon} />
           <input
             type="checkbox"
             id="gas"
@@ -107,11 +106,13 @@ const EquipmentFilter = () => {
             className={css.equipmentCheckbox}
           />
           <label htmlFor="gas" className={css.equipmentLabel}>
-            Gas
+            <svg width="32" height="32" className={css.equipmentIcon}>
+              <use href="/src/assets/symbol-defs.svg#icon-gas"></use>
+            </svg>
+            <span>Gas</span>
           </label>
         </li>
         <li className={css.equipmentListItem}>
-          <BiWater size={32} className={css.equipmentIcon} />
           <input
             type="checkbox"
             id="water"
@@ -119,7 +120,8 @@ const EquipmentFilter = () => {
             className={css.equipmentCheckbox}
           />
           <label htmlFor="water" className={css.equipmentLabel}>
-            Water
+            <BiWater size={32} />
+            <span>Water</span>
           </label>
         </li>
       </ul>

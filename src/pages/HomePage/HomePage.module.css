@@ -27,11 +27,14 @@
 .mainHeading {
   font-size: 48px;
   font-weight: 600;
+  line-height: 0.7;
+  margin-bottom: 16px;
 }
 
 .subheading {
   font-size: 24px;
   font-weight: 600;
+  line-height: 1.3;
   margin-bottom: 40px;
 }
 

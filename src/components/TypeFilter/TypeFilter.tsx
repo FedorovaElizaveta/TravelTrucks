@@ -1,5 +1,4 @@
 import css from "./TypeFilter.module.css";
-import { FaStar } from "react-icons/fa";
 
 const TypeFilter = () => {
   return (
@@ -7,7 +6,6 @@ const TypeFilter = () => {
       <h2 className={css.typeHeading}>Vehicle type</h2>
       <ul className={css.typeList}>
         <li className={css.typeListItem}>
-          <FaStar size={32} className={css.typeIcon} />
           <input
             type="checkbox"
             id="van"
@@ -15,11 +13,14 @@ const TypeFilter = () => {
             className={css.typeCheckbox}
           />
           <label htmlFor="van" className={css.typeLabel}>
-            Van
+            <svg width="32" height="32" className={css.typeIcon}>
+              <use href="/src/assets/symbol-defs.svg#icon-van"></use>
+            </svg>
+
+            <span className={css.typeLabelName}>Van</span>
           </label>
         </li>
         <li className={css.typeListItem}>
-          <FaStar size={32} className={css.typeIcon} />
           <input
             type="checkbox"
             id="fullyIntegrated"
@@ -27,11 +28,14 @@ const TypeFilter = () => {
             className={css.typeCheckbox}
           />
           <label htmlFor="fullyIntegrated" className={css.typeLabel}>
-            Fully Integrated
+            <svg width="28" height="28" className={css.typeIcon}>
+              <use href="/src/assets/symbol-defs.svg#icon-fullyIntegrated"></use>
+            </svg>
+
+            <span className={css.typeLabelName}>Fully Integrated</span>
           </label>
         </li>
         <li className={css.typeListItem}>
-          <FaStar size={32} className={css.typeIcon} />
           <input
             type="checkbox"
             id="alcove"
@@ -39,7 +43,11 @@ const TypeFilter = () => {
             className={css.typeCheckbox}
           />
           <label htmlFor="alcove" className={css.typeLabel}>
-            Alcove
+            <svg width="28" height="28" className={css.typeIcon}>
+              <use href="/src/assets/symbol-defs.svg#icon-alcove"></use>
+            </svg>
+
+            <span className={css.typeLabelName}>Alcove</span>
           </label>
         </li>
       </ul>

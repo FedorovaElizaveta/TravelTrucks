@@ -28,22 +28,13 @@
   column-gap: 12px;
 }
 
-.typeListItem {
-  position: relative;
-}
-
-.typeIcon {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
 .typeLabel {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding-top: 56px;
+  align-items: center;
+  row-gap: 8px;
+  text-align: center;
   width: 112px;
   height: 96px;
   border: #dadde1 1px solid;
@@ -53,9 +44,13 @@
 }
 
 .typeLabel:hover {
-  border-color: #6c717b;
+  border-color: #101828;
 }
 
 .typeCheckbox:checked + .typeLabel {
   border-color: #e44848;
+}
+
+.typeIcon {
+  fill: #101828;
 }

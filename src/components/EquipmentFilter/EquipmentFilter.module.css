@@ -29,22 +29,12 @@
   row-gap: 8px;
 }
 
-.equipmentListItem {
-  position: relative;
-}
-
-.equipmentIcon {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
 .equipmentLabel {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding-top: 56px;
+  align-items: center;
+  row-gap: 8px;
   width: 112px;
   height: 96px;
   border: #dadde1 1px solid;
@@ -54,9 +44,13 @@
 }
 
 .equipmentLabel:hover {
-  border-color: #6c717b;
+  border-color: #101828;
 }
 
 .equipmentCheckbox:checked + .equipmentLabel {
   border-color: #e44848;
+}
+
+.equipmentIcon {
+  fill: #101828;
 }
