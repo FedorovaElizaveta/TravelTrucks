@@ -57,7 +57,7 @@ const EquipmentFilter = () => {
           />
           <label htmlFor="TV" className={css.equipmentLabel}>
             <svg width="32" height="32" className={css.equipmentIcon}>
-              <use href="/src/assets/symbol-defs.svg#icon-tv"></use>
+              <use href="/public/symbol-defs.svg#icon-tv"></use>
             </svg>
             <span>TV</span>
           </label>
@@ -107,7 +107,7 @@ const EquipmentFilter = () => {
           />
           <label htmlFor="gas" className={css.equipmentLabel}>
             <svg width="32" height="32" className={css.equipmentIcon}>
-              <use href="/src/assets/symbol-defs.svg#icon-gas"></use>
+              <use href="/public/symbol-defs.svg#icon-gas"></use>
             </svg>
             <span>Gas</span>
           </label>
