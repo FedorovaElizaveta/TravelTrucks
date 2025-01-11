@@ -1,0 +1,17 @@
+.vehicleListWrapper {
+  margin-top: 48px;
+  margin-bottom: 40px;
+}
+
+.vehicleList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+.vehicleListItem {
+  width: 888px;
+  border: #dadde1 1px solid;
+  border-radius: 20px;
+  padding: 24px;
+}
