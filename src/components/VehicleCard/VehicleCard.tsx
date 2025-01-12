@@ -1,58 +1,106 @@
+import { BiWater } from "react-icons/bi";
 import css from "./VehicleCard.module.css";
-import { BsMap, BsSuitHeart } from "react-icons/bs";
-import { CiStar } from "react-icons/ci";
+import {
+  BsCupHot,
+  BsDroplet,
+  BsMap,
+  BsSuitHeart,
+  BsUiRadios,
+  BsWind,
+} from "react-icons/bs";
+import { CgSmartHomeRefrigerator } from "react-icons/cg";
+import { FaStar } from "react-icons/fa";
+import { TbMicrowave } from "react-icons/tb";
 import { Link } from "react-router-dom";
-
-// "AC": true,
-// "bathroom": true,
-// "kitchen": false,
-// "TV": true,
-// "radio": true,
-// "refrigerator": false,
-// "microwave": true,
-// "gas": false,
-// "water": true,
 
 const VehicleCard = ({ vehicle }) => {
   const getEquipment = () => {
-    const vehicleEquipment = [];
+    const equipmentData = [
+      { name: "AC", icon: <BsWind size={20} /> },
+      { name: "Bathroom", icon: <BsDroplet size={20} /> },
+      { name: "Kitchen", icon: <BsCupHot size={20} /> },
+      {
+        name: "TV",
+        icon: (
+          <svg width="20" height="20">
+            <use href="/symbol-defs.svg#icon-tv"></use>
+          </svg>
+        ),
+      },
+      { name: "Radio", icon: <BsUiRadios size={20} /> },
+      { name: "Refrigerator", icon: <CgSmartHomeRefrigerator size={20} /> },
+      { name: "Microwave", icon: <TbMicrowave size={20} /> },
+      {
+        name: "Gas",
+        icon: (
+          <svg width="20" height="20">
+            <use href="/symbol-defs.svg#icon-gas"></use>
+          </svg>
+        ),
+      },
+      { name: "Water", icon: <BiWater size={20} /> },
+    ];
 
-    if (vehicle.AC) vehicleEquipment.push("AC");
-    if (vehicle.bathroom) vehicleEquipment.push("Bathroom");
-    if (vehicle.kitchen) vehicleEquipment.push("Kitchen");
-    if (vehicle.TV) vehicleEquipment.push("TV");
-    if (vehicle.radio) vehicleEquipment.push("Radio");
-    if (vehicle.refrigerator) vehicleEquipment.push("Refrigerator");
-    if (vehicle.microwave) vehicleEquipment.push("Microwave");
-    if (vehicle.gas) vehicleEquipment.push("Gas");
-    if (vehicle.water) vehicleEquipment.push("Water");
-
-    return vehicleEquipment;
+    return equipmentData.filter((item) =>
+      item.name === item.name.toUpperCase()
+        ? vehicle[item.name]
+        : vehicle[item.name.toLowerCase()]
+    );
   };
 
   return (
-    <div>
-      <p>{vehicle.name}</p>
+    <div className={css.cardWrapper}>
+      <img
+        src={vehicle.gallery[0].original}
+        alt={vehicle.name}
+        className={css.image}
+      />
 
-      <p>&euro;{vehicle.price}</p>
+      <div>
+        <div className={css.nameAndPiceWrapper}>
+          <h3 className={css.name}>{vehicle.name}</h3>
 
-      <button type="button">
-        <BsSuitHeart size={26} />
-      </button>
+          <div className={css.priceWrapper}>
+            <p>&euro;{`${vehicle.price}.00`}</p>
 
-      <CiStar size={16} />
+            <button type="button" className={css.favouriteBtn}>
+              <BsSuitHeart size={26} className={css.favouriteBtnIcon} />
+            </button>
+          </div>
+        </div>
+        <div className={css.reviewAndLocationWrapper}>
+          <div className={css.reviewWrapper}>
+            <FaStar size={16} className={css.reviewIcon} />
 
-      <p>
-        {vehicle.rating} ({vehicle.reviews.length} Reviews)
-      </p>
+            <p>
+              {vehicle.rating} ({vehicle.reviews.length} Reviews)
+            </p>
+          </div>
 
-      <BsMap size={16} />
+          <div className={css.locationWrapper}>
+            <BsMap size={16} />
 
-      <p>{vehicle.location}</p>
+            <p>{vehicle.location}</p>
+          </div>
+        </div>
+        <p className={css.description}>{vehicle.description}</p>
 
-      <p>{vehicle.description}</p>
-
-      <Link to={`/campers/${vehicle.id}`}>Show more</Link>
+        <ul className={css.equipmentList}>
+          {getEquipment().map((equipment, index) => (
+            <li key={index} className={css.equipmentListItem}>
+              {equipment.icon}
+              {/* <span>
+                {equipment.name.charAt(0).toUpperCase() +
+                  equipment.name.slice(1)}
+              </span> */}
+              <span>{equipment.name}</span>
+            </li>
+          ))}
+        </ul>
+        <Link to={`/campers/${vehicle.id}`} className={css.showMoreLink}>
+          Show more
+        </Link>
+      </div>
     </div>
   );
 };
