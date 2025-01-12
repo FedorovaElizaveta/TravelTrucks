@@ -6,8 +6,18 @@ import { BsUiRadios } from "react-icons/bs";
 import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { TbMicrowave } from "react-icons/tb";
 import { BiWater } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { toggleEquipmentFilter } from "../../redux/slice.js";
 
 const EquipmentFilter = () => {
+  const dispatch = useDispatch();
+
+  const handleCheckboxChange = (event) => {
+    const { name } = event.target;
+
+    dispatch(toggleEquipmentFilter(name));
+  };
+
   return (
     <div className={css.equipmentFilterWrapper}>
       <h2 className={css.equipmentHeading}>Vehicle equipment</h2>
@@ -18,6 +28,7 @@ const EquipmentFilter = () => {
             id="AC"
             name="AC"
             className={css.equipmentCheckbox}
+            onClick={handleCheckboxChange}
           />
           <label htmlFor="AC" className={css.equipmentLabel}>
             <BsWind size={32} />
@@ -30,6 +41,7 @@ const EquipmentFilter = () => {
             id="bathroom"
             name="bathroom"
             className={css.equipmentCheckbox}
+            onClick={handleCheckboxChange}
           />
           <label htmlFor="bathroom" className={css.equipmentLabel}>
             <BsDroplet size={32} />
@@ -42,6 +54,7 @@ const EquipmentFilter = () => {
             id="kitchen"
             name="kitchen"
             className={css.equipmentCheckbox}
+            onClick={handleCheckboxChange}
           />
           <label htmlFor="kitchen" className={css.equipmentLabel}>
             <BsCupHot size={32} />
@@ -54,6 +67,7 @@ const EquipmentFilter = () => {
             id="TV"
             name="TV"
             className={css.equipmentCheckbox}
+            onClick={handleCheckboxChange}
           />
           <label htmlFor="TV" className={css.equipmentLabel}>
             <svg width="32" height="32" className={css.equipmentIcon}>
@@ -68,6 +82,7 @@ const EquipmentFilter = () => {
             id="radio"
             name="radio"
             className={css.equipmentCheckbox}
+            onClick={handleCheckboxChange}
           />
           <label htmlFor="radio" className={css.equipmentLabel}>
             <BsUiRadios size={32} />
@@ -80,6 +95,7 @@ const EquipmentFilter = () => {
             id="refrigerator"
             name="refrigerator"
             className={css.equipmentCheckbox}
+            onClick={handleCheckboxChange}
           />
           <label htmlFor="refrigerator" className={css.equipmentLabel}>
             <CgSmartHomeRefrigerator size={32} />
@@ -92,6 +108,7 @@ const EquipmentFilter = () => {
             id="microwave"
             name="microwave"
             className={css.equipmentCheckbox}
+            onClick={handleCheckboxChange}
           />
           <label htmlFor="microwave" className={css.equipmentLabel}>
             <TbMicrowave size={32} />
@@ -104,6 +121,7 @@ const EquipmentFilter = () => {
             id="gas"
             name="gas"
             className={css.equipmentCheckbox}
+            onClick={handleCheckboxChange}
           />
           <label htmlFor="gas" className={css.equipmentLabel}>
             <svg width="32" height="32" className={css.equipmentIcon}>
@@ -118,6 +136,7 @@ const EquipmentFilter = () => {
             id="water"
             name="water"
             className={css.equipmentCheckbox}
+            onClick={handleCheckboxChange}
           />
           <label htmlFor="water" className={css.equipmentLabel}>
             <BiWater size={32} />

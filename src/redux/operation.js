@@ -5,9 +5,10 @@ axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
 export const getVehicles = createAsyncThunk(
   "vehicle/getVehicles",
-  async (_, { rejectWithValue }) => {
+  async (query, { rejectWithValue }) => {
     try {
-      const response = await axios("/campers");
+      const url = query ? `/campers?${query}` : "/campers";
+      const response = await axios(url);
       return response.data.items;
     } catch (e) {
       return rejectWithValue(e.message);

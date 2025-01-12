@@ -1,13 +1,12 @@
 import css from "./VehicleList.module.css";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getVehicles } from "../../redux/operation.js";
 import { selectVehicles } from "../../redux/selectors.js";
+import { getVehicles } from "../../redux/operation.js";
 import VehicleCard from "../VehicleCard/VehicleCard.tsx";
+import { useEffect } from "react";
 
 const VehicleList = () => {
   const dispatch = useDispatch();
-
   const vehicles = useSelector(selectVehicles);
 
   useEffect(() => {

@@ -1,6 +1,16 @@
 import css from "./TypeFilter.module.css";
+import { useDispatch } from "react-redux";
+import { toggleBodyTypeFilter } from "../../redux/slice.js";
 
 const TypeFilter = () => {
+  const dispatch = useDispatch();
+
+  const handleCheckboxChange = (event) => {
+    const { name } = event.target;
+
+    dispatch(toggleBodyTypeFilter(name));
+  };
+
   return (
     <div className={css.typeFilterWrapper}>
       <h2 className={css.typeHeading}>Vehicle type</h2>
@@ -11,6 +21,7 @@ const TypeFilter = () => {
             id="van"
             name="van"
             className={css.typeCheckbox}
+            onChange={handleCheckboxChange}
           />
           <label htmlFor="van" className={css.typeLabel}>
             <svg width="32" height="32" className={css.typeIcon}>
@@ -26,6 +37,7 @@ const TypeFilter = () => {
             id="fullyIntegrated"
             name="fullyIntegrated"
             className={css.typeCheckbox}
+            onChange={handleCheckboxChange}
           />
           <label htmlFor="fullyIntegrated" className={css.typeLabel}>
             <svg width="28" height="28" className={css.typeIcon}>
@@ -41,6 +53,7 @@ const TypeFilter = () => {
             id="alcove"
             name="alcove"
             className={css.typeCheckbox}
+            onChange={handleCheckboxChange}
           />
           <label htmlFor="alcove" className={css.typeLabel}>
             <svg width="28" height="28" className={css.typeIcon}>
