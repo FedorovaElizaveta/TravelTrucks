@@ -8,9 +8,9 @@ const CampersPage = lazy(() => import("./pages/CampersPage/CampersPage.tsx"));
 const CampersDetailsPage = lazy(
   () => import("./pages/CampersDetailsPage/CampersDetailsPage.tsx")
 );
-// const NotFoundPage = lazy(
-//   () => import("./pages/NotFoundPage/NotFoundPage.tsx")
-// );
+const NotFoundPage = lazy(
+  () => import("./pages/NotFoundPage/NotFoundPage.tsx")
+);
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/campers" element={<CampersPage />} />
           <Route path="/campers/:id" element={<CampersDetailsPage />} />
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );

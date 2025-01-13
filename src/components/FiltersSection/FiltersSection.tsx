@@ -1,6 +1,6 @@
 import css from "./FiltersSection.module.css";
 import EquipmentFilter from "../EquipmentFilter/EquipmentFilter";
-import FilterSearch from "../FilterSearch/FilterSearch";
+import SearchVehicleBtn from "../SearchVehicleBtn/SearchVehicleBtn";
 import LocationFilter from "../LocationFilter/LocationFilter";
 import TypeFilter from "../TypeFilter/TypeFilter";
 
@@ -13,7 +13,7 @@ const FiltersSection = () => {
         <EquipmentFilter />
         <TypeFilter />
       </div>
-      <FilterSearch />
+      <SearchVehicleBtn />
     </div>
   );
 };

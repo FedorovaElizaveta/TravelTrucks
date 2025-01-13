@@ -1,9 +1,9 @@
-import css from "./FilterSearch.module.css";
+import css from "./SearchVehicleBtn.module.css";
 import { selectFilters } from "../../redux/selectors.js";
 import { getVehicles } from "../../redux/operation.js";
 import { useDispatch, useSelector } from "react-redux";
 
-const FilterSearch = () => {
+const SearchVehicleBtn = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
 
@@ -35,4 +35,4 @@ const FilterSearch = () => {
   );
 };
 
-export default FilterSearch;
+export default SearchVehicleBtn;
