@@ -12,8 +12,15 @@ import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { FaStar } from "react-icons/fa";
 import { TbMicrowave } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavouriteVehicles } from "../../redux/slice.js";
+import { selectFavouriteVehicles } from "../../redux/selectors.js";
+import clsx from "clsx";
 
 const VehicleCard = ({ vehicle }) => {
+  const dispatch = useDispatch();
+  const favouriteVehicles = useSelector(selectFavouriteVehicles);
+
   const getEquipment = () => {
     const equipmentData = [
       { name: "AC", icon: <BsWind size={20} /> },
@@ -48,6 +55,16 @@ const VehicleCard = ({ vehicle }) => {
     );
   };
 
+  const manageFavouriteVehicles = () => {
+    dispatch(toggleFavouriteVehicles(vehicle));
+  };
+
+  //
+
+  const isFavourite = favouriteVehicles.some(
+    (favVehicle) => favVehicle.id === vehicle.id
+  );
+
   return (
     <div className={css.cardWrapper}>
       <img
@@ -63,8 +80,17 @@ const VehicleCard = ({ vehicle }) => {
           <div className={css.priceWrapper}>
             <p>&euro;{`${vehicle.price}.00`}</p>
 
-            <button type="button" className={css.favouriteBtn}>
-              <BsSuitHeart size={26} className={css.favouriteBtnIcon} />
+            <button
+              type="button"
+              className={css.favouriteBtn}
+              onClick={manageFavouriteVehicles}
+            >
+              <BsSuitHeart
+                size={26}
+                className={clsx(css.favouriteBtnIcon, {
+                  [css.favouriteActive]: isFavourite,
+                })}
+              />
             </button>
           </div>
         </div>
@@ -89,10 +115,6 @@ const VehicleCard = ({ vehicle }) => {
           {getEquipment().map((equipment, index) => (
             <li key={index} className={css.equipmentListItem}>
               {equipment.icon}
-              {/* <span>
-                {equipment.name.charAt(0).toUpperCase() +
-                  equipment.name.slice(1)}
-              </span> */}
               <span>{equipment.name}</span>
             </li>
           ))}

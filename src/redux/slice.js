@@ -10,11 +10,13 @@ const vehicleSlice = createSlice({
       equipment: [],
       bodyType: [],
     },
+    favouriteVehicles: [],
   },
   reducers: {
     setLocationFilter(state, { payload }) {
       state.filters.location = payload;
     },
+
     toggleEquipmentFilter(state, { payload }) {
       const equipmentIndex = state.filters.equipment.indexOf(payload);
 
@@ -24,6 +26,7 @@ const vehicleSlice = createSlice({
         state.filters.equipment.splice(equipmentIndex, 1);
       }
     },
+
     toggleBodyTypeFilter(state, { payload }) {
       const bodyTypeIndex = state.filters.bodyType.indexOf(payload);
 
@@ -33,6 +36,7 @@ const vehicleSlice = createSlice({
         state.filters.bodyType.splice(bodyTypeIndex, 1);
       }
     },
+
     clearFilters(state) {
       state.filters = {
         location: "",
@@ -40,7 +44,20 @@ const vehicleSlice = createSlice({
         type: [],
       };
     },
+
+    toggleFavouriteVehicles(state, { payload }) {
+      const favouriteVehicleIndex = state.favouriteVehicles.findIndex(
+        (item) => item.id === payload.id
+      );
+
+      if (favouriteVehicleIndex === -1) {
+        state.favouriteVehicles.push(payload);
+      } else {
+        state.favouriteVehicles.splice(favouriteVehicleIndex, 1);
+      }
+    },
   },
+
   extraReducers: (builder) => {
     builder.addCase(getVehicles.fulfilled, (state, { payload }) => {
       state.vehicle = payload;
@@ -53,5 +70,6 @@ export const {
   toggleEquipmentFilter,
   toggleBodyTypeFilter,
   clearFilters,
+  toggleFavouriteVehicles,
 } = vehicleSlice.actions;
 export const vehicleReducer = vehicleSlice.reducer;

@@ -42,6 +42,11 @@
   height: 26px;
   background-color: transparent;
   border: none;
+  transition: background-color 250ms ease-in-out;
+}
+
+.favouriteActive {
+  fill: #e44848;
 }
 
 /* Reviews and Location */
@@ -85,10 +90,12 @@
 /* Equipment */
 
 .equipmentList {
+  height: 104px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 24px;
+  overflow-y: auto;
 }
 
 .equipmentListItem {
