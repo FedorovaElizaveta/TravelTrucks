@@ -1,8 +1,12 @@
 import css from "./CampersDetails.module.css";
 import { BsMap } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { selectActiveVehicle } from "../../redux/selectors.js";
 
-const CampersDetails = ({ vehicle }) => {
+const CampersDetails = () => {
+  const vehicle = useSelector(selectActiveVehicle);
+
   return (
     <div>
       <h3 className={css.name}>{vehicle.name}</h3>
@@ -24,9 +28,9 @@ const CampersDetails = ({ vehicle }) => {
       <p className={css.price}>&euro;{`${vehicle.price}.00`}</p>
 
       <ul className={css.galleryList}>
-        {vehicle.gallery.map((image) => {
+        {vehicle.gallery.map((image, index) => {
           return (
-            <li className={css.galleryListItem}>
+            <li className={css.galleryListItem} key={index}>
               <img
                 src={image.original}
                 alt={vehicle.name}

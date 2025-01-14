@@ -42,3 +42,8 @@
 .goHomeLink:focus {
   background-color: #d84343;
 }
+
+.navigationWrapper {
+  display: flex;
+  column-gap: 20px;
+}

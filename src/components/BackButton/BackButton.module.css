@@ -1,0 +1,36 @@
+.goBackBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 200px;
+  border: none;
+}
+
+.goBackBtnCampersDetails {
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  color: #101828;
+  background-color: transparent;
+  border: #dadde1 1px solid;
+  transition: border-color 250ms ease-in-out;
+  margin-bottom: 28px;
+}
+
+.goBackBtnCampersDetails:hover,
+.goBackBtnCampersDetails:focus {
+  border-color: #d84343;
+}
+
+.goBackBtnNotFound {
+  font-size: 20px;
+  padding: 16px 60px;
+  color: #fff;
+  background-color: #e44848;
+  transition: background-color 250ms ease-in-out;
+}
+
+.goBackBtnNotFound:hover,
+.goBackBtnNotFound:focus {
+  background-color: #d84343;
+}

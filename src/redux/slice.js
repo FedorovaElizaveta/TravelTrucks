@@ -11,6 +11,7 @@ const vehicleSlice = createSlice({
       bodyType: [],
     },
     favouriteVehicles: [],
+    activeVehicle: null,
   },
   reducers: {
     setLocationFilter(state, { payload }) {
@@ -56,6 +57,10 @@ const vehicleSlice = createSlice({
         state.favouriteVehicles.splice(favouriteVehicleIndex, 1);
       }
     },
+
+    manageActiveVehicle(state, { payload }) {
+      state.activeVehicle = payload;
+    },
   },
 
   extraReducers: (builder) => {
@@ -71,5 +76,6 @@ export const {
   toggleBodyTypeFilter,
   clearFilters,
   toggleFavouriteVehicles,
+  manageActiveVehicle,
 } = vehicleSlice.actions;
 export const vehicleReducer = vehicleSlice.reducer;
