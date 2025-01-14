@@ -1,38 +1,43 @@
+import css from "./CampersDetails.module.css";
 import { BsMap } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 
 const CampersDetails = ({ vehicle }) => {
   return (
     <div>
-      <h3>{vehicle.name}</h3>
+      <h3 className={css.name}>{vehicle.name}</h3>
 
-      <div>
-        <div>
-          <FaStar size={16} />
-          <p>
+      <div className={css.ratingAndLocationWrapper}>
+        <div className={css.ratingWrapper}>
+          <FaStar size={16} className={css.starIcon} />
+          <p className={css.rating}>
             {vehicle.rating}({vehicle.reviews.length} Reviews)
           </p>
         </div>
 
-        <div>
+        <div className={css.locationWrapper}>
           <BsMap size={16} />
           <p>{vehicle.location}</p>
         </div>
       </div>
 
-      <p>&euro;{`${vehicle.price}.00`}</p>
+      <p className={css.price}>&euro;{`${vehicle.price}.00`}</p>
 
-      <ul>
+      <ul className={css.galleryList}>
         {vehicle.gallery.map((image) => {
           return (
-            <li>
-              <img src={image.original} alt={vehicle.name} />
+            <li className={css.galleryListItem}>
+              <img
+                src={image.original}
+                alt={vehicle.name}
+                className={css.vehiclePhoto}
+              />
             </li>
           );
         })}
       </ul>
 
-      <p>{vehicle.description}</p>
+      <p className={css.description}>{vehicle.description}</p>
     </div>
   );
 };

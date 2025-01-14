@@ -1,3 +1,4 @@
+import css from "./CampersDetailsPage.module.css";
 import { useParams } from "react-router-dom";
 import CampersDetails from "../../components/CampersDetails/CampersDetails";
 import { useSelector } from "react-redux";
@@ -10,7 +11,7 @@ const CampersDetailsPage = () => {
   const vehicle = vehicles.find((vehicle) => vehicle.id === id);
 
   return (
-    <div>
+    <div className={css.campersDetailsPageWrapper}>
       <CampersDetails vehicle={vehicle} />
     </div>
   );
