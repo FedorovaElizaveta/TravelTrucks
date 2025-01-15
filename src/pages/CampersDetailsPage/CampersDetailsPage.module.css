@@ -1,3 +1,45 @@
 .campersDetailsPageWrapper {
   padding: 48px 64px;
 }
+
+.detailsNavigationWrapper {
+  position: relative;
+}
+
+.detailsNavigationList {
+  display: flex;
+  column-gap: 40px;
+  position: relative;
+  margin-bottom: 68px;
+}
+
+.detailsNavigationList::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 48px;
+  width: 100%;
+  height: 1px;
+  background-color: #dadde1;
+}
+
+.detailsNavigationListItem {
+  position: relative;
+}
+
+.navigationLink {
+  color: #101828;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.activeNavigationLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 46px;
+  width: 100%;
+  height: 5px;
+  background-color: #e44848;
+  z-index: 10;
+}

@@ -1,5 +1,5 @@
 import css from "./CampersDetailsPage.module.css";
-import { useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import CampersDetails from "../../components/CampersDetails/CampersDetails";
 import { useDispatch, useSelector } from "react-redux";
 import { selectVehicles } from "../../redux/selectors.js";
@@ -7,6 +7,7 @@ import { manageActiveVehicle } from "../../redux/slice.js";
 import BackButton from "../../components/BackButton/BackButton.js";
 import { useEffect } from "react";
 import { selectActiveVehicle } from "../../redux/selectors.js";
+import clsx from "clsx";
 
 const CampersDetailsPage = () => {
   const { id } = useParams();
@@ -23,6 +24,33 @@ const CampersDetailsPage = () => {
     <div className={css.campersDetailsPageWrapper}>
       <BackButton page={"CampersDetailsPage"} />
       {vehicle && <CampersDetails />}
+
+      <div className={css.detailsNavigationWrapper}>
+        <ul className={css.detailsNavigationList}>
+          <li className={css.detailsNavigationListItem}>
+            <NavLink
+              to="features"
+              className={({ isActive }) =>
+                clsx(css.navigationLink, isActive && css.activeNavigationLink)
+              }
+            >
+              Features
+            </NavLink>
+          </li>
+          <li className={css.detailsNavigationListItem}>
+            <NavLink
+              to="reviews"
+              className={({ isActive }) =>
+                clsx(css.navigationLink, isActive && css.activeNavigationLink)
+              }
+            >
+              Reviews
+            </NavLink>
+          </li>
+        </ul>
+
+        <Outlet />
+      </div>
     </div>
   );
 };

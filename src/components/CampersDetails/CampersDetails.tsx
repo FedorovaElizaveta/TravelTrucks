@@ -8,7 +8,7 @@ const CampersDetails = () => {
   const vehicle = useSelector(selectActiveVehicle);
 
   return (
-    <div>
+    <div className={css.campersDetailsWrapper}>
       <h3 className={css.name}>{vehicle.name}</h3>
 
       <div className={css.ratingAndLocationWrapper}>

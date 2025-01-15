@@ -1,65 +1,20 @@
-import { BiWater } from "react-icons/bi";
 import css from "./VehicleCard.module.css";
-import {
-  BsCupHot,
-  BsDroplet,
-  BsMap,
-  BsSuitHeart,
-  BsUiRadios,
-  BsWind,
-} from "react-icons/bs";
-import { CgSmartHomeRefrigerator } from "react-icons/cg";
+import { BsMap, BsSuitHeart } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-import { TbMicrowave } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavouriteVehicles } from "../../redux/slice.js";
 import { selectFavouriteVehicles } from "../../redux/selectors.js";
 import clsx from "clsx";
+import getEquipment from "../../utils/getEquipment.js";
 
 const VehicleCard = ({ vehicle }) => {
   const dispatch = useDispatch();
   const favouriteVehicles = useSelector(selectFavouriteVehicles);
 
-  const getEquipment = () => {
-    const equipmentData = [
-      { name: "AC", icon: <BsWind size={20} /> },
-      { name: "Bathroom", icon: <BsDroplet size={20} /> },
-      { name: "Kitchen", icon: <BsCupHot size={20} /> },
-      {
-        name: "TV",
-        icon: (
-          <svg width="20" height="20">
-            <use href="/symbol-defs.svg#icon-tv"></use>
-          </svg>
-        ),
-      },
-      { name: "Radio", icon: <BsUiRadios size={20} /> },
-      { name: "Refrigerator", icon: <CgSmartHomeRefrigerator size={20} /> },
-      { name: "Microwave", icon: <TbMicrowave size={20} /> },
-      {
-        name: "Gas",
-        icon: (
-          <svg width="20" height="20">
-            <use href="/symbol-defs.svg#icon-gas"></use>
-          </svg>
-        ),
-      },
-      { name: "Water", icon: <BiWater size={20} /> },
-    ];
-
-    return equipmentData.filter((item) =>
-      item.name === item.name.toUpperCase()
-        ? vehicle[item.name]
-        : vehicle[item.name.toLowerCase()]
-    );
-  };
-
   const manageFavouriteVehicles = () => {
     dispatch(toggleFavouriteVehicles(vehicle));
   };
-
-  //
 
   const isFavourite = favouriteVehicles.some(
     (favVehicle) => favVehicle.id === vehicle.id
@@ -112,7 +67,7 @@ const VehicleCard = ({ vehicle }) => {
         <p className={css.description}>{vehicle.description}</p>
 
         <ul className={css.equipmentList}>
-          {getEquipment().map((equipment, index) => (
+          {getEquipment(vehicle).map((equipment, index) => (
             <li key={index} className={css.equipmentListItem}>
               {equipment.icon}
               <span>{equipment.name}</span>
