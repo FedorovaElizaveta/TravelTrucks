@@ -22,32 +22,34 @@ const CampersDetailsFeatures = () => {
       <p className={css.vehicleDetailsHeading}>Vehicle details</p>
 
       <table className={css.detailsTable}>
-        <tr>
-          <th className={css.tableHeader}>Form</th>
-          <td className={css.tableData}>
-            {vehicle.form.replace(/^\w/, (c) => c.toUpperCase())}
-          </td>
-        </tr>
-        <tr>
-          <th className={css.tableHeader}>Length</th>
-          <td className={css.tableData}>{vehicle.length}</td>
-        </tr>
-        <tr>
-          <th className={css.tableHeader}>Width</th>
-          <td className={css.tableData}>{vehicle.width}</td>
-        </tr>
-        <tr>
-          <th className={css.tableHeader}>Height</th>
-          <td className={css.tableData}>{vehicle.height}</td>
-        </tr>
-        <tr>
-          <th className={css.tableHeader}>Tank</th>
-          <td className={css.tableData}>{vehicle.tank}</td>
-        </tr>
-        <tr>
-          <th className={css.tableHeader}>Consumption</th>
-          <td className={css.tableData}>{vehicle.consumption}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <th className={css.tableHeader}>Form</th>
+            <td className={css.tableData}>
+              {vehicle.form.replace(/^\w/, (c) => c.toUpperCase())}
+            </td>
+          </tr>
+          <tr>
+            <th className={css.tableHeader}>Length</th>
+            <td className={css.tableData}>{vehicle.length}</td>
+          </tr>
+          <tr>
+            <th className={css.tableHeader}>Width</th>
+            <td className={css.tableData}>{vehicle.width}</td>
+          </tr>
+          <tr>
+            <th className={css.tableHeader}>Height</th>
+            <td className={css.tableData}>{vehicle.height}</td>
+          </tr>
+          <tr>
+            <th className={css.tableHeader}>Tank</th>
+            <td className={css.tableData}>{vehicle.tank}</td>
+          </tr>
+          <tr>
+            <th className={css.tableHeader}>Consumption</th>
+            <td className={css.tableData}>{vehicle.consumption}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
