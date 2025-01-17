@@ -29,12 +29,11 @@ const CampersDetailsReviews = () => {
                 <div>{review.reviewer_name.slice(0, 1)}</div>
                 <div>
                   <p>{review.reviewer_name}</p>
-                  <div>
+                  {/* <div>
                     {getStars(review.reviewer_rating).map((star, index) => {
-                      console.log(star);
                       return star;
                     })}
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <p>{review.comment}</p>
