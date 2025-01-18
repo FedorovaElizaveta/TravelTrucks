@@ -1,3 +1,4 @@
+import css from "./CampersDetailsReviews.module.css";
 import { useSelector } from "react-redux";
 import { selectActiveVehicle } from "../../redux/selectors.js";
 import { FaStar } from "react-icons/fa";
@@ -21,22 +22,24 @@ const CampersDetailsReviews = () => {
 
   return (
     <div>
-      <ul>
+      <ul className={css.reviewList}>
         {vehicle.reviews.map((review, index) => {
           return (
             <li key={index}>
-              <div>
-                <div>{review.reviewer_name.slice(0, 1)}</div>
+              <div className={css.userNameRatingWrapper}>
+                <div className={css.nameFrame}>
+                  {review.reviewer_name.slice(0, 1)}
+                </div>
                 <div>
-                  <p>{review.reviewer_name}</p>
-                  {/* <div>
+                  <p className={css.userName}>{review.reviewer_name}</p>
+                  <ul className={css.ratingList}>
                     {getStars(review.reviewer_rating).map((star, index) => {
-                      return star;
+                      return <li key={index}>{star}</li>;
                     })}
-                  </div> */}
+                  </ul>
                 </div>
               </div>
-              <p>{review.comment}</p>
+              <p className={css.comment}>{review.comment}</p>
             </li>
           );
         })}

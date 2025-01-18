@@ -1,12 +1,14 @@
 import clsx from "clsx";
 import css from "./BackButton.module.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const BackButton = ({ page }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleGoBack = () => {
-    navigate(-1);
+    const from = location.state?.from || "/campers";
+    navigate(from);
   };
 
   const styles = clsx(

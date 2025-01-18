@@ -1,0 +1,41 @@
+.reviewList {
+  width: 631px;
+  max-height: 588px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 44px;
+  overflow-y: scroll;
+}
+
+.userNameRatingWrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  margin-bottom: 16px;
+}
+
+.nameFrame {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #e44848;
+  background-color: #f2f4f7;
+  border-radius: 50%;
+}
+
+.userName {
+  margin-bottom: 4px;
+}
+
+.ratingList {
+  display: flex;
+  column-gap: 4px;
+}
+
+.comment {
+  color: #475467;
+}
