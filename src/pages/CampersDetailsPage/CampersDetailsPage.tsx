@@ -14,6 +14,7 @@ import BackButton from "../../components/BackButton/BackButton.js";
 import { useEffect, useRef } from "react";
 import { selectActiveVehicle } from "../../redux/selectors.js";
 import clsx from "clsx";
+import BookingForm from "../../components/BookingForm/BookingForm.js";
 
 const CampersDetailsPage = () => {
   const { id } = useParams();
@@ -64,7 +65,10 @@ const CampersDetailsPage = () => {
           </li>
         </ul>
 
-        <Outlet />
+        <div className={css.additionalInfoAndFormWrapper}>
+          <Outlet />
+          <BookingForm />
+        </div>
       </div>
     </div>
   );

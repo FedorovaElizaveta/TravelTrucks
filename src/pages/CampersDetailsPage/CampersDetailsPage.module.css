@@ -43,3 +43,8 @@
   background-color: #e44848;
   z-index: 10;
 }
+
+.additionalInfoAndFormWrapper {
+  display: flex;
+  column-gap: 40px;
+}
