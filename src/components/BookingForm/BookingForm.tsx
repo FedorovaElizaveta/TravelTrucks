@@ -1,10 +1,13 @@
+import css from "./BookingForm.module.css";
 import { Field, Form, Formik } from "formik";
 
 const BookingForm = () => {
   return (
-    <div>
-      <p>Book your campervan now</p>
-      <p>Stay connected! We are always ready to help you.</p>
+    <div className={css.formWrapper}>
+      <p className={css.formHeading}>Book your campervan now</p>
+      <p className={css.formInvitationText}>
+        Stay connected! We are always ready to help you.
+      </p>
 
       <Formik
         initialValues={{ name: "", email: "", bookingDate: "", comment: "" }}
@@ -12,16 +15,31 @@ const BookingForm = () => {
           console.log(values);
         }}
       >
-        <Form>
-          <Field name="name" placeholder="Name" />
+        <Form className={css.form}>
+          <Field name="name" placeholder="Name" className={css.userDataField} />
 
-          <Field name="email" type="email" placeholder="Email" />
+          <Field
+            name="email"
+            type="email"
+            placeholder="Email"
+            className={css.userDataField}
+          />
 
-          <Field name="bookingDate" type="date" placeholder="Booking date" />
+          <Field
+            name="bookingDate"
+            placeholder="Booking date"
+            className={css.userDataField}
+          />
 
-          <Field name="comment" placeholder="comment" />
+          <Field
+            name="comment"
+            placeholder="Comment"
+            className={css.commentField}
+          />
 
-          <button type="submit">Send</button>
+          <button type="submit" className={css.submitBtn}>
+            Send
+          </button>
         </Form>
       </Formik>
     </div>
