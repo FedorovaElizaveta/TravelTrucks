@@ -12,7 +12,13 @@ const BookingForm = () => {
       <Formik
         initialValues={{ name: "", email: "", bookingDate: "", comment: "" }}
         onSubmit={(values) => {
-          console.log(values);
+          const data = `
+            Name: ${values.name}
+            Email: ${values.email}
+            Booking Date: ${values.bookingDate}
+            Comment: ${values.comment}`;
+
+          alert(data);
         }}
       >
         <Form className={css.form}>
