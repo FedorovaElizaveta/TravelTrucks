@@ -12,6 +12,8 @@ const vehicleSlice = createSlice({
     },
     favouriteVehicles: [],
     activeVehicle: null,
+    page: 1,
+    limit: 5,
   },
   reducers: {
     setLocationFilter(state, { payload }) {
@@ -61,6 +63,10 @@ const vehicleSlice = createSlice({
     manageActiveVehicle(state, { payload }) {
       state.activeVehicle = payload;
     },
+
+    incrementPage(state) {
+      state.page += 1;
+    },
   },
 
   extraReducers: (builder) => {
@@ -77,5 +83,6 @@ export const {
   clearFilters,
   toggleFavouriteVehicles,
   manageActiveVehicle,
+  incrementPage,
 } = vehicleSlice.actions;
 export const vehicleReducer = vehicleSlice.reducer;
