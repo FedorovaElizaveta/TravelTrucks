@@ -1,8 +1,14 @@
+import { Filters } from "../redux/slice.ts";
+
 export const createQueryString = (
-  page,
-  filters = { location: "", equipment: [], bodyType: [] }
+  filters: Filters = { location: "", equipment: [], bodyType: [] },
+  page: number,
+  limit: number
 ) => {
-  const searchParams = new URLSearchParams({ page, limit: "5" });
+  const searchParams = new URLSearchParams({
+    page: String(page),
+    limit: String(limit),
+  });
 
   if (filters.location) searchParams.append("location", filters.location);
 

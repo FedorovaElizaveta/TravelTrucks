@@ -1,7 +1,7 @@
 import css from "./CampersDetailsFeatures.module.css";
 import { useSelector } from "react-redux";
-import { selectActiveVehicle } from "../../redux/selectors.js";
-import getEquipment from "../../utils/getEquipment.js";
+import { selectActiveVehicle } from "../../redux/selectors.ts";
+import getEquipment from "../../utils/getEquipment.tsx";
 
 const CampersDetailsFeatures = () => {
   const vehicle = useSelector(selectActiveVehicle);

@@ -1,11 +1,12 @@
 import css from "./TypeFilter.module.css";
 import { useDispatch } from "react-redux";
-import { toggleBodyTypeFilter } from "../../redux/slice.js";
+import { toggleBodyTypeFilter } from "../../redux/slice.ts";
+import { AppDispatch } from "../../redux/store.ts";
 
 const TypeFilter = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
-  const handleCheckboxChange = (event) => {
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = event.target;
 
     dispatch(toggleBodyTypeFilter(name));

@@ -8,9 +8,9 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { vehicleReducer } from "./slice.js";
+import { vehicleReducer } from "./slice.ts";
 import storage from "redux-persist/lib/storage";
-import persistReducer from "redux-persist/es/persistReducer";
+import { persistReducer } from "redux-persist";
 
 const persistConfig = {
   key: "root",
@@ -32,3 +32,6 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

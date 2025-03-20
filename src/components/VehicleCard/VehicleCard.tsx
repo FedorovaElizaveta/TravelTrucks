@@ -3,16 +3,21 @@ import { BsMap, BsSuitHeart } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleFavouriteVehicles } from "../../redux/slice.js";
-import { selectFavouriteVehicles } from "../../redux/selectors.js";
+import { toggleFavouriteVehicles, Vehicle } from "../../redux/slice.ts";
+import { selectFavouriteVehicles } from "../../redux/selectors.ts";
 import clsx from "clsx";
-import getEquipment from "../../utils/getEquipment.js";
+import getEquipment from "../../utils/getEquipment.tsx";
+import { AppDispatch } from "../../redux/store.ts";
 
-const VehicleCard = ({ vehicle }) => {
-  const dispatch = useDispatch();
+interface VehicleCardProps {
+  vehicle: Vehicle;
+}
+
+const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
+  const dispatch = useDispatch<AppDispatch>();
   const favouriteVehicles = useSelector(selectFavouriteVehicles);
 
-  const manageFavouriteVehicles = () => {
+  const manageFavouriteVehicles = (): void => {
     dispatch(toggleFavouriteVehicles(vehicle));
   };
 
@@ -23,6 +28,7 @@ const VehicleCard = ({ vehicle }) => {
   return (
     <div className={css.cardWrapper}>
       <img
+        // add default imgage and reviews
         src={vehicle.gallery[0].original}
         alt={vehicle.name}
         className={css.image}
@@ -54,7 +60,7 @@ const VehicleCard = ({ vehicle }) => {
             <FaStar size={16} className={css.reviewIcon} />
 
             <p>
-              {vehicle.rating} ({vehicle.reviews.length} Reviews)
+              {vehicle.rating ?? "No rating"} ({vehicle.reviews.length} Reviews)
             </p>
           </div>
 

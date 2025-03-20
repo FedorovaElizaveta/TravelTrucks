@@ -1,6 +1,6 @@
 import css from "./CampersDetailsReviews.module.css";
 import { useSelector } from "react-redux";
-import { selectActiveVehicle } from "../../redux/selectors.js";
+import { selectActiveVehicle } from "../../redux/selectors.ts";
 import { FaStar } from "react-icons/fa";
 
 const CampersDetailsReviews = () => {

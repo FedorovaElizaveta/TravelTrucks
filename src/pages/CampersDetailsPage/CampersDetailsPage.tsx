@@ -8,13 +8,13 @@ import {
 } from "react-router-dom";
 import CampersDetails from "../../components/CampersDetails/CampersDetails";
 import { useDispatch, useSelector } from "react-redux";
-import { selectVehicles } from "../../redux/selectors.js";
-import { manageActiveVehicle } from "../../redux/slice.js";
-import BackButton from "../../components/BackButton/BackButton.js";
+import { selectVehicles } from "../../redux/selectors.ts";
+import { manageActiveVehicle } from "../../redux/slice.ts";
+import BackButton from "../../components/BackButton/BackButton.tsx";
 import { useEffect, useRef } from "react";
-import { selectActiveVehicle } from "../../redux/selectors.js";
+import { selectActiveVehicle } from "../../redux/selectors.ts";
 import clsx from "clsx";
-import BookingForm from "../../components/BookingForm/BookingForm.js";
+import BookingForm from "../../components/BookingForm/BookingForm.tsx";
 
 const CampersDetailsPage = () => {
   const { id } = useParams();

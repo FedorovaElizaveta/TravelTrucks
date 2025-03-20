@@ -1,14 +1,15 @@
 import { useDispatch } from "react-redux";
 import css from "./LocationFilter.module.css";
 import { BsMap } from "react-icons/bs";
-import { setLocationFilter } from "../../redux/slice.js";
+import { setLocationFilter } from "../../redux/slice.ts";
 import { useEffect, useState } from "react";
+import { AppDispatch } from "../../redux/store.ts";
 
 const LocationFilter = () => {
   const [inputValue, setInputValue] = useState("");
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 

@@ -2,7 +2,7 @@ import css from "./CampersDetails.module.css";
 import { BsMap } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { selectActiveVehicle } from "../../redux/selectors.js";
+import { selectActiveVehicle } from "../../redux/selectors.ts";
 
 const CampersDetails = () => {
   const vehicle = useSelector(selectActiveVehicle);
