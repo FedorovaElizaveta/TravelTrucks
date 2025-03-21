@@ -13,16 +13,31 @@ interface Gallery {
 }
 
 export interface Vehicle {
-  id: string;
-  name: string;
-  location: string;
-  equipment: string[];
-  bodyType: string;
-  gallery: Gallery[];
-  price: number;
-  rating: number;
-  reviews: Reviews[];
+  AC: boolean;
+  TV: boolean;
+  bathroom: boolean;
+  consumption: string;
   description: string;
+  engine: string;
+  form: string;
+  gallery: Gallery[];
+  gas: boolean;
+  height: string;
+  id: string;
+  kitchen: boolean;
+  length: string;
+  location: string;
+  microwave: boolean;
+  name: string;
+  price: number;
+  radio: boolean;
+  rating: number;
+  refrigerator: boolean;
+  reviews: Reviews[];
+  tank: string;
+  transmission: string;
+  water: boolean;
+  width: string;
 }
 
 export interface Filters {

@@ -7,33 +7,39 @@ import { selectActiveVehicle } from "../../redux/selectors.ts";
 const CampersDetails = () => {
   const vehicle = useSelector(selectActiveVehicle);
 
+  if (!vehicle)
+    return <p className={css.noDetailsMessage}>No vehicle details...</p>;
+
+  const { name, rating, reviews, location, price, gallery, description } =
+    vehicle;
+
   return (
     <div className={css.campersDetailsWrapper}>
-      <h3 className={css.name}>{vehicle.name}</h3>
+      <h3 className={css.name}>{name}</h3>
 
       <div className={css.ratingAndLocationWrapper}>
         <div className={css.ratingWrapper}>
           <FaStar size={16} className={css.starIcon} />
           <p className={css.rating}>
-            {vehicle.rating}({vehicle.reviews.length} Reviews)
+            {rating}({reviews.length} Reviews)
           </p>
         </div>
 
         <div className={css.locationWrapper}>
           <BsMap size={16} />
-          <p>{vehicle.location}</p>
+          <p>{location}</p>
         </div>
       </div>
 
-      <p className={css.price}>&euro;{`${vehicle.price}.00`}</p>
+      <p className={css.price}>&euro;{price.toFixed(2)}</p>
 
       <ul className={css.galleryList}>
-        {vehicle.gallery.map((image, index) => {
+        {gallery.map((image) => {
           return (
-            <li className={css.galleryListItem} key={index}>
+            <li className={css.galleryListItem} key={image.original}>
               <img
                 src={image.original}
-                alt={vehicle.name}
+                alt={name}
                 className={css.vehiclePhoto}
               />
             </li>
@@ -41,7 +47,7 @@ const CampersDetails = () => {
         })}
       </ul>
 
-      <p className={css.description}>{vehicle.description}</p>
+      <p className={css.description}>{description}</p>
     </div>
   );
 };

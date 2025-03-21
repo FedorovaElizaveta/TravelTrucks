@@ -15,20 +15,26 @@ import { useEffect, useRef } from "react";
 import { selectActiveVehicle } from "../../redux/selectors.ts";
 import clsx from "clsx";
 import BookingForm from "../../components/BookingForm/BookingForm.tsx";
+import { AppDispatch } from "../../redux/store.ts";
+import { LocationState } from "../../types/location.ts";
 
 const CampersDetailsPage = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const vehicles = useSelector(selectVehicles);
-  const vehicle = useSelector(selectActiveVehicle);
-
-  const location = useLocation();
-  const backLocationRef = useRef(location.state?.from || "/campers");
+  const activeVehicle = useSelector(selectActiveVehicle);
 
   useEffect(() => {
+    if (!id) return;
+
     const vehicle = vehicles.find((vehicle) => vehicle.id === id);
-    dispatch(manageActiveVehicle(vehicle));
+
+    if (vehicle) dispatch(manageActiveVehicle(vehicle));
   }, [dispatch, id, vehicles]);
+
+  const location = useLocation();
+  const state = location.state as LocationState | null;
+  const backLocationRef = useRef(state?.from || "/campers");
 
   if (location.pathname.endsWith(`/campers/${id}`)) {
     return <Navigate to="features" replace />;
@@ -37,7 +43,7 @@ const CampersDetailsPage = () => {
   return (
     <div className={css.campersDetailsPageWrapper}>
       <BackButton page={"CampersDetailsPage"} />
-      {vehicle && <CampersDetails />}
+      {activeVehicle && <CampersDetails />}
 
       <div className={css.detailsNavigationWrapper}>
         <ul className={css.detailsNavigationList}>

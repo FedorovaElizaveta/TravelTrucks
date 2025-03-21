@@ -1,13 +1,19 @@
 import clsx from "clsx";
 import css from "./BackButton.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { LocationState } from "../../types/location";
 
-const BackButton = ({ page }) => {
+interface BackButtonProps {
+  page: "CampersDetailsPage" | "NotFoundPage";
+}
+
+const BackButton: React.FC<BackButtonProps> = ({ page }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const state = location.state as LocationState | null;
 
   const handleGoBack = () => {
-    const from = location.state?.from || "/campers";
+    const from = state?.from || "/campers";
     navigate(from);
   };
 

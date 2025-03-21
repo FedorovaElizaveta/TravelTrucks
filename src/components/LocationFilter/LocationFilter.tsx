@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import css from "./LocationFilter.module.css";
-import { BsMap } from "react-icons/bs";
 import { setLocationFilter } from "../../redux/slice.ts";
 import { useEffect, useState } from "react";
 import { AppDispatch } from "../../redux/store.ts";
+import { Icons } from "../../icons/icons.tsx";
 
 const LocationFilter = () => {
   const [inputValue, setInputValue] = useState("");
@@ -32,7 +32,7 @@ const LocationFilter = () => {
           value={inputValue}
           onChange={handleInputChange}
         />
-        <BsMap size={20} className={css.mapIcon} />
+        <Icons.map size={20} className={css.mapIcon} />
       </div>
     </div>
   );

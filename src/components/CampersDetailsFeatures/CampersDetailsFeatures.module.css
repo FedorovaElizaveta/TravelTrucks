@@ -1,3 +1,9 @@
+.noFeaturesMessage {
+  font-size: 25px;
+  text-align: center;
+  margin: 50px 0 50px 0;
+}
+
 .ampersDetailsFeaturesWrapper {
   width: 631px;
   padding: 44px 52px;

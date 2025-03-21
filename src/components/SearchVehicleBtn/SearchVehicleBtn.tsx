@@ -2,7 +2,7 @@ import css from "./SearchVehicleBtn.module.css";
 import { selectFilters, selectLimit } from "../../redux/selectors.ts";
 import { getVehicles } from "../../redux/operation.ts";
 import { useDispatch, useSelector } from "react-redux";
-import { createQueryString } from "../../utils/createQueryString.tsx";
+import { createQueryString } from "../../utils/createQueryString.ts";
 import { selectPage } from "../../redux/selectors.ts";
 import { AppDispatch } from "../../redux/store.ts";
 

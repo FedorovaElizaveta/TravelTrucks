@@ -1,39 +1,23 @@
-import { BiWater } from "react-icons/bi";
-import { BsCupHot, BsDroplet, BsUiRadios, BsWind } from "react-icons/bs";
-import { CgSmartHomeRefrigerator } from "react-icons/cg";
-import { TbMicrowave } from "react-icons/tb";
+import { Icons } from "../icons/icons";
+import { Vehicle } from "../redux/slice";
 
-const getEquipment = (vehicle) => {
+const getEquipment = (vehicle: Vehicle, size: number) => {
   const equipmentData = [
-    { name: "AC", icon: <BsWind size={20} /> },
-    { name: "Bathroom", icon: <BsDroplet size={20} /> },
-    { name: "Kitchen", icon: <BsCupHot size={20} /> },
-    {
-      name: "TV",
-      icon: (
-        <svg width="20" height="20">
-          <use href="/symbol-defs.svg#icon-tv"></use>
-        </svg>
-      ),
-    },
-    { name: "Radio", icon: <BsUiRadios size={20} /> },
-    { name: "Refrigerator", icon: <CgSmartHomeRefrigerator size={20} /> },
-    { name: "Microwave", icon: <TbMicrowave size={20} /> },
-    {
-      name: "Gas",
-      icon: (
-        <svg width="20" height="20">
-          <use href="/symbol-defs.svg#icon-gas"></use>
-        </svg>
-      ),
-    },
-    { name: "Water", icon: <BiWater size={20} /> },
+    { name: "AC", icon: <Icons.AC size={size} /> },
+    { name: "Bathroom", icon: <Icons.bathroom size={size} /> },
+    { name: "Kitchen", icon: <Icons.kitchen size={size} /> },
+    { name: "TV", icon: <Icons.TV size={size} /> },
+    { name: "Radio", icon: <Icons.radio size={size} /> },
+    { name: "Refrigerator", icon: <Icons.refrigerator size={size} /> },
+    { name: "Microwave", icon: <Icons.microwave size={size} /> },
+    { name: "Gas", icon: <Icons.gas size={size} /> },
+    { name: "Water", icon: <Icons.water size={size} /> },
   ];
 
   return equipmentData.filter((item) =>
     item.name === item.name.toUpperCase()
-      ? vehicle[item.name]
-      : vehicle[item.name.toLowerCase()]
+      ? vehicle[item.name as keyof Vehicle]
+      : vehicle[item.name.toLowerCase() as keyof Vehicle]
   );
 };
 

@@ -1,3 +1,8 @@
+.noReviewsMessage {
+  min-width: 631px;
+  font-size: 25px;
+}
+
 .reviewList {
   width: 631px;
   max-height: 588px;

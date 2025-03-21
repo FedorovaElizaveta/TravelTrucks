@@ -2,6 +2,7 @@ import css from "./TypeFilter.module.css";
 import { useDispatch } from "react-redux";
 import { toggleBodyTypeFilter } from "../../redux/slice.ts";
 import { AppDispatch } from "../../redux/store.ts";
+import { Icons } from "../../icons/icons.tsx";
 
 const TypeFilter = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -25,9 +26,7 @@ const TypeFilter = () => {
             onChange={handleCheckboxChange}
           />
           <label htmlFor="van" className={css.typeLabel}>
-            <svg width="32" height="32" className={css.typeIcon}>
-              <use href="/symbol-defs.svg#icon-van"></use>
-            </svg>
+            <Icons.van size={32} className={css.typeIcon} />
 
             <span className={css.typeLabelName}>Van</span>
           </label>
@@ -41,9 +40,7 @@ const TypeFilter = () => {
             onChange={handleCheckboxChange}
           />
           <label htmlFor="fullyIntegrated" className={css.typeLabel}>
-            <svg width="28" height="28" className={css.typeIcon}>
-              <use href="/symbol-defs.svg#icon-fullyIntegrated"></use>
-            </svg>
+            <Icons.fullyIntegrated size={28} className={css.typeIcon} />
 
             <span className={css.typeLabelName}>Fully Integrated</span>
           </label>
@@ -57,9 +54,7 @@ const TypeFilter = () => {
             onChange={handleCheckboxChange}
           />
           <label htmlFor="alcove" className={css.typeLabel}>
-            <svg width="28" height="28" className={css.typeIcon}>
-              <use href="/symbol-defs.svg#icon-alcove"></use>
-            </svg>
+            <Icons.alcove size={28} className={css.typeIcon} />
 
             <span className={css.typeLabelName}>Alcove</span>
           </label>
