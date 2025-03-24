@@ -28,12 +28,14 @@ const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
 
   return (
     <div className={css.cardWrapper}>
-      <img
-        // add default imgage
-        src={vehicle.gallery[0].original}
-        alt={vehicle.name}
-        className={css.image}
-      />
+      {vehicle.gallery && (
+        <img
+          // add default imgage
+          src={vehicle.gallery[0].original}
+          alt={vehicle.name}
+          className={css.image}
+        />
+      )}
 
       <div>
         <div className={css.nameAndPiceWrapper}>
@@ -79,7 +81,12 @@ const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
 
         <ul className={css.equipmentList}>
           {equipment.map((equipment, index) => (
-            <li key={index} className={css.equipmentListItem}>
+            <li
+              key={`${equipment.name}-${index}-${Math.random()
+                .toString(36)
+                .substr(2, 5)}`}
+              className={css.equipmentListItem}
+            >
               {equipment.icon}
               <span>{equipment.name}</span>
             </li>

@@ -1,7 +1,7 @@
 import { Filters } from "../redux/slice.ts";
 
 export const createQueryString = (
-  filters: Filters = { location: "", equipment: [], bodyType: [] },
+  filters: Filters | null,
   page: number,
   limit: number
 ) => {
@@ -10,16 +10,18 @@ export const createQueryString = (
     limit: String(limit),
   });
 
-  if (filters.location) searchParams.append("location", filters.location);
+  if (filters) {
+    if (filters.location) searchParams.append("location", filters.location);
 
-  if (filters.equipment.length > 0) {
-    filters.equipment.forEach((feature) =>
-      searchParams.append(feature, "true")
-    );
-  }
+    if (filters.equipment.length > 0) {
+      filters.equipment.forEach((feature) =>
+        searchParams.append(feature, "true")
+      );
+    }
 
-  if (filters.bodyType.length > 0) {
-    filters.bodyType.forEach((type) => searchParams.append("form", type));
+    if (filters.bodyType.length > 0) {
+      searchParams.set("form", filters.bodyType.join("|"));
+    }
   }
 
   return searchParams.toString();

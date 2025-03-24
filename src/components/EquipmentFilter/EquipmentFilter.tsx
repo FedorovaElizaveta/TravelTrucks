@@ -1,16 +1,21 @@
 import css from "./EquipmentFilter.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleEquipmentFilter } from "../../redux/slice.ts";
 import { AppDispatch } from "../../redux/store.ts";
 import { Icons } from "../../icons/icons.tsx";
+import { selectFilters } from "../../redux/selectors.ts";
 
 const EquipmentFilter = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const filters = useSelector(selectFilters);
+  const selectedEquipment = filters.equipment;
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = event.target;
     dispatch(toggleEquipmentFilter(name));
   };
+
+  const isChecked = (name: string) => selectedEquipment.includes(name);
 
   return (
     <div className={css.equipmentFilterWrapper}>
@@ -24,6 +29,7 @@ const EquipmentFilter = () => {
             name="AC"
             className={css.equipmentCheckbox}
             onChange={handleCheckboxChange}
+            checked={isChecked("AC")}
           />
 
           <label htmlFor="AC" className={css.equipmentLabel}>
@@ -40,6 +46,7 @@ const EquipmentFilter = () => {
             name="bathroom"
             className={css.equipmentCheckbox}
             onChange={handleCheckboxChange}
+            checked={isChecked("bathroom")}
           />
 
           <label htmlFor="bathroom" className={css.equipmentLabel}>
@@ -56,6 +63,7 @@ const EquipmentFilter = () => {
             name="kitchen"
             className={css.equipmentCheckbox}
             onChange={handleCheckboxChange}
+            checked={isChecked("kitchen")}
           />
 
           <label htmlFor="kitchen" className={css.equipmentLabel}>
@@ -72,6 +80,7 @@ const EquipmentFilter = () => {
             name="TV"
             className={css.equipmentCheckbox}
             onChange={handleCheckboxChange}
+            checked={isChecked("TV")}
           />
 
           <label htmlFor="TV" className={css.equipmentLabel}>
@@ -88,6 +97,7 @@ const EquipmentFilter = () => {
             name="radio"
             className={css.equipmentCheckbox}
             onChange={handleCheckboxChange}
+            checked={isChecked("radio")}
           />
 
           <label htmlFor="radio" className={css.equipmentLabel}>
@@ -104,6 +114,7 @@ const EquipmentFilter = () => {
             name="refrigerator"
             className={css.equipmentCheckbox}
             onChange={handleCheckboxChange}
+            checked={isChecked("refrigerator")}
           />
 
           <label htmlFor="refrigerator" className={css.equipmentLabel}>
@@ -120,6 +131,7 @@ const EquipmentFilter = () => {
             name="microwave"
             className={css.equipmentCheckbox}
             onChange={handleCheckboxChange}
+            checked={isChecked("microwave")}
           />
 
           <label htmlFor="microwave" className={css.equipmentLabel}>
@@ -136,6 +148,7 @@ const EquipmentFilter = () => {
             name="gas"
             className={css.equipmentCheckbox}
             onChange={handleCheckboxChange}
+            checked={isChecked("gas")}
           />
 
           <label htmlFor="gas" className={css.equipmentLabel}>
@@ -152,6 +165,7 @@ const EquipmentFilter = () => {
             name="water"
             className={css.equipmentCheckbox}
             onChange={handleCheckboxChange}
+            checked={isChecked("water")}
           />
 
           <label htmlFor="water" className={css.equipmentLabel}>

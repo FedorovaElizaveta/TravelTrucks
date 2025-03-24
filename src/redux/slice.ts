@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getVehicles } from "./operation.ts";
+import { getFilteredVehicles, getVehicles } from "./operation.ts";
 
 interface Reviews {
   comment: string;
@@ -53,6 +53,7 @@ interface VehicleState {
   activeVehicle: Vehicle | null;
   page: number;
   limit: number;
+  total: number;
 }
 
 const initialState: VehicleState = {
@@ -66,6 +67,7 @@ const initialState: VehicleState = {
   activeVehicle: null,
   page: 1,
   limit: 5,
+  total: 0,
 };
 
 const vehicleSlice = createSlice({
@@ -123,13 +125,53 @@ const vehicleSlice = createSlice({
     incrementPage(state) {
       state.page += 1;
     },
+
+    resetPage(state) {
+      state.page = 1;
+    },
+
+    clearVehicles(state) {
+      state.vehicles = [];
+    },
   },
 
   extraReducers: (builder) => {
     builder.addCase(
       getVehicles.fulfilled,
-      (state, { payload }: PayloadAction<Vehicle[]>) => {
-        state.vehicles = payload;
+      (
+        state,
+        { payload }: PayloadAction<{ total: number; items: Vehicle[] }>
+      ) => {
+        const { total, items } = payload;
+        items.forEach((vehicle) => {
+          if (!state.vehicles.some((v) => v.id === vehicle.id)) {
+            state.vehicles.push(vehicle);
+          }
+        });
+
+        state.total = total;
+      }
+    );
+
+    builder.addCase(
+      getFilteredVehicles.fulfilled,
+      (
+        state,
+        { payload }: PayloadAction<{ total: number; items: Vehicle[] }>
+      ) => {
+        const { total, items } = payload;
+
+        if (state.page === 1) {
+          state.vehicles = [];
+        }
+
+        items.forEach((vehicle) => {
+          if (!state.vehicles.some((v) => v.id === vehicle.id)) {
+            state.vehicles.push(vehicle);
+          }
+        });
+
+        state.total = total;
       }
     );
   },
@@ -143,5 +185,7 @@ export const {
   toggleFavouriteVehicles,
   manageActiveVehicle,
   incrementPage,
+  resetPage,
+  clearVehicles,
 } = vehicleSlice.actions;
 export const vehicleReducer = vehicleSlice.reducer;

@@ -1,13 +1,16 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import css from "./LocationFilter.module.css";
 import { setLocationFilter } from "../../redux/slice.ts";
 import { useEffect, useState } from "react";
 import { AppDispatch } from "../../redux/store.ts";
 import { Icons } from "../../icons/icons.tsx";
+import { selectFilters } from "../../redux/selectors.ts";
 
 const LocationFilter = () => {
-  const [inputValue, setInputValue] = useState("");
   const dispatch = useDispatch<AppDispatch>();
+  const [inputValue, setInputValue] = useState("");
+  const filters = useSelector(selectFilters);
+  const location = filters.location;
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -16,6 +19,10 @@ const LocationFilter = () => {
   useEffect(() => {
     dispatch(setLocationFilter(inputValue));
   }, [dispatch, inputValue]);
+
+  useEffect(() => {
+    setInputValue(location);
+  }, [location]);
 
   return (
     <div className={css.locationWrapper}>

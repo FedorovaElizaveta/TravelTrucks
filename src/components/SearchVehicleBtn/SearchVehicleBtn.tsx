@@ -1,20 +1,30 @@
 import css from "./SearchVehicleBtn.module.css";
-import { selectFilters, selectLimit } from "../../redux/selectors.ts";
-import { getVehicles } from "../../redux/operation.ts";
+import {
+  selectFilters,
+  selectLimit,
+  selectPage,
+} from "../../redux/selectors.ts";
 import { useDispatch, useSelector } from "react-redux";
-import { createQueryString } from "../../utils/createQueryString.ts";
-import { selectPage } from "../../redux/selectors.ts";
 import { AppDispatch } from "../../redux/store.ts";
+import { createQueryString } from "../../utils/createQueryString.ts";
+import { getFilteredVehicles } from "../../redux/operation.ts";
+import { clearVehicles, resetPage } from "../../redux/slice.ts";
 
 const SearchVehicleBtn = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const filters = useSelector(selectFilters);
   const page = useSelector(selectPage);
   const limit = useSelector(selectLimit);
+  const filters = useSelector(selectFilters);
 
   const handleSearch = (): void => {
+    dispatch(resetPage());
+
+    if (page === 1) {
+      dispatch(clearVehicles());
+    }
+
     const query = createQueryString(filters, page, limit);
-    dispatch(getVehicles({ query }));
+    dispatch(getFilteredVehicles({ query }));
   };
 
   return (

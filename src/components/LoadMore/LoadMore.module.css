@@ -1,0 +1,16 @@
+.loadMoreBtn {
+  width: 166px;
+  height: 56px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 200px;
+  border: none;
+  background-color: #e44848;
+  color: #fff;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
+  background-color: #d84343;
+}
